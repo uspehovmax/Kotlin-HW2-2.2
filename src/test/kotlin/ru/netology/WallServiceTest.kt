@@ -25,7 +25,7 @@ class WallServiceTest {
         WallService.add(Post(text = "Second Post", isFavorite = false))
         WallService.add(Post(text = "Next Post", isFavorite = true))
 
-        val update = Post(id = 5, text = "Update text", isFavorite = false)
+        val update = Post(id = 3, text = "Update text", isFavorite = false)
 
         val result = WallService.update(update)
 
@@ -39,7 +39,7 @@ class WallServiceTest {
         WallService.add(Post(text = "World", likes = 60, isFavorite = false))
         WallService.add(Post(text = "Next time", isFavorite = true))
 
-        val update = Post(id = 1, text = "edited text", isFavorite = false)
+        val update = Post(id = 5, text = "edited text", isFavorite = false)
 
         val result = WallService.update(update)
 
