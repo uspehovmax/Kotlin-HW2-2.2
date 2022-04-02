@@ -14,16 +14,19 @@ object WallService {
     fun update(post: Post): Boolean {
         for (searchPost in posts) {
             if (post.id == searchPost.id) {
-                // первый вариант через создание поста с тем же идентификатором
-                val updatedPost = Post(searchPost.id, post.text, post.likes, post.isPinned, post.isFavorite)
-                // второй вариант через копирование post.copy
-                //val updatedPost = post.copy(searchPost.id, post.text, post.likes, post.isPinned, post.isFavorite)
+                // вариант через создание поста с тем же идентификатором
+                val updatedPost = Post(
+                    id = searchPost.id,
+                    text = post.text,
+                    likes = post.likes
+                )
                 posts[posts.indexOf(searchPost)] = updatedPost
                 return true
             }
         }
         return false
     }
+
 
     // Проверка вывода
     fun printPosts() {
