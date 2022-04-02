@@ -1,3 +1,5 @@
+package ru.netology
+
 import org.junit.Assert
 import org.junit.Test
 import ru.netology.WallService
@@ -25,7 +27,7 @@ class WallServiceTest {
         WallService.add(Post(text = "Second Post", isFavorite = false))
         WallService.add(Post(text = "Next Post", isFavorite = true))
 
-        val update = Post(id = 3, text = "Update text", isFavorite = false)
+        val update = Post(id = 1, text = "Update text", isFavorite = false)
 
         val result = WallService.update(update)
 
