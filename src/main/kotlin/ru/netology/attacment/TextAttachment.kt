@@ -4,10 +4,10 @@ import ru.netology.content.Text
 
 class TextAttachment(
     val text: Text,
-    override var idAttachment: Long = 0,
-    override val ownerId: Long = 0,
-    override val userId: Long = 0,
-    override val albumId: Long = 0
+    override val idAttachment: Long,
+    override val ownerId: Long,
+    override val userId: Long,
+    override val albumId: Long,
 ) : Attachment {
 
     val type: String = "Text"

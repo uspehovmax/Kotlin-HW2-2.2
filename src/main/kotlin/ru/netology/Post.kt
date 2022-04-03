@@ -1,10 +1,9 @@
 package ru.netology
 
+import ru.netology.attacment.*
 import java.util.*
 
-// часть полей закомментирована для оптимизации
-
-class Post( // для тестирования data class меняем на class
+class Post(
     var id: Long = 0,
     val ownerId: Long = 0,
     val fromId: Long = 0,
@@ -21,7 +20,7 @@ class Post( // для тестирования data class меняем на clas
     val views: Objects? = null,
     val postType: String = "post",        // post, copy, reply, postpone, suggest
     val postSource: Objects? = null,
-    //val attachments: Array<Post> = emptyArray<Post>(),
+    var attachments: Array<Attachment> = emptyArray<Attachment>(), //
     val geo: Objects? = null,
     var copyHistory: Array<Post> = emptyArray<Post>(),
     val signerId: Long = 0,
@@ -34,8 +33,11 @@ class Post( // для тестирования data class меняем на clas
     val donut: Objects? = null,    //
     val postponedId: Long = 0,
 ) {
-    // переопределение для контроля вывода без data class
+    // переопределение для контроля вывода
     override fun toString(): String {
-        return "Post id: $id, Text: $text, likes: $likes"
+        return "Post id: $id, " +
+                "Text: $text, " +
+                "likes: $likes, " +
+                "Attachments: ${attachments.size}"
     }
 }

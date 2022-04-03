@@ -16,9 +16,10 @@ object WallService {
             if (post.id == searchPost.id) {
                 // вариант через создание поста с тем же идентификатором
                 val updatedPost = Post(
-                    id = searchPost.id,
+                    id = post.id,
                     text = post.text,
-                    likes = post.likes
+                    likes = post.likes,
+                    attachments = post.attachments
                 )
                 posts[posts.indexOf(searchPost)] = updatedPost
                 return true
@@ -26,7 +27,6 @@ object WallService {
         }
         return false
     }
-
 
     // Проверка вывода
     fun printPosts() {
