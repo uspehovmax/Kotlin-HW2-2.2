@@ -9,6 +9,7 @@ class AudioAttachment(
     override val userId: Long,
     override val albumId: Long,
 ) : Attachment {
+
     val type: String = "Audio"
 
     override fun toString(): String {
