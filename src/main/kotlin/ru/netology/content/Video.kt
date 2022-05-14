@@ -1,7 +1,9 @@
 package ru.netology.content
 
-class Video(
-    val fileName: String = "",
-    val fileSize: Long = 0
+data class Video(
+    val videoId: Int = 0,
+    val userId: Int = 0,
+    val ownerId: Int = 0,
+    val albumId: Int = 0,
 ) {
 }

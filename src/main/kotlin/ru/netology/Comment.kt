@@ -2,7 +2,7 @@ package ru.netology
 
 import ru.netology.attacment.Attachment
 
-/*data*/ class Comment(
+data class Comment(
     val postId: Long,
     val fromId: Int = 0,
     val date: Int = 0,
