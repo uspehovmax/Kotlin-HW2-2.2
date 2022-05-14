@@ -3,7 +3,7 @@ package ru.netology
 import ru.netology.attacment.*
 import java.util.*
 
-class Post(
+data class Post(
     var id: Long = 0,
     val ownerId: Long = 0,
     val fromId: Long = 0,
@@ -13,16 +13,16 @@ class Post(
     val replyOwnerId: Long = 0,
     val replyPostId: Long = 0,
     val friendsOnly: Boolean = true,
-    val comments: Objects? = null,
+    val comments: Array<Comment> = emptyArray<Comment>(),
     val copyright: Objects? = null,
     val likes: Long = 0,
     val reposts: Objects? = null,
     val views: Objects? = null,
     val postType: String = "post",        // post, copy, reply, postpone, suggest
     val postSource: Objects? = null,
-    var attachments: Array<Attachment> = emptyArray<Attachment>(), //
+    val attachments: Array<Attachment> = emptyArray<Attachment>(),
     val geo: Objects? = null,
-    var copyHistory: Array<Post> = emptyArray<Post>(),
+    val copyHistory: Array<Post> = emptyArray<Post>(),
     val signerId: Long = 0,
     val canPin: Boolean = true,
     val canDelete: Boolean = false,
@@ -38,6 +38,8 @@ class Post(
         return "Post id: $id, " +
                 "Text: $text, " +
                 "likes: $likes, " +
-                "Attachments: ${attachments.size}"
+                "Attachments: ${attachments.size}, " +
+                "comments: ${comments.size}"
+
     }
 }
