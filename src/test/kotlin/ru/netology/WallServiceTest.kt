@@ -1,8 +1,11 @@
+package ru.netology
+
 import org.junit.Assert
 import org.junit.Test
 import ru.netology.WallService
 import org.junit.Assert.*
 import ru.netology.Post
+import ru.netology.WallService.createComment
 
 class WallServiceTest {
 
@@ -25,7 +28,7 @@ class WallServiceTest {
         WallService.add(Post(text = "Second Post", isFavorite = false))
         WallService.add(Post(text = "Next Post", isFavorite = true))
 
-        val update = Post(id = 3, text = "Update text", isFavorite = false)
+        val update = Post(id = 1, text = "Update text", isFavorite = false)
 
         val result = WallService.update(update)
 
@@ -45,4 +48,30 @@ class WallServiceTest {
 
         assertFalse(result)
     }
+
+
+    @Test()
+    fun normalExecution() {
+
+        val firstPost = Post(text = "First Post")
+        WallService.add(firstPost)
+        val commentFirst = Comment(postId = 1, text = "First Comment in firstPost")
+
+        val result = createComment(commentFirst)
+
+        assertTrue(result)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+
+        val firstPost = Post(text = "First Post")
+        WallService.add(firstPost)
+        val commentFirst = Comment(postId = 50, text = "First Comment in firstPost")
+
+        val result = createComment(commentFirst)
+
+        assertTrue(result)
+    }
+
 }
